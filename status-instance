@@ -1,0 +1,15 @@
+#!/usr/bin/python
+from azure import *
+from azure.servicemanagement import *
+subscription_id = 'Please enter your subcription id here'
+certificate_path = 'Please enter your certification path here'
+service_name = 'Please enter your service name here'
+deployment_name = 'Please enter your deployment name here'
+role_instance_name = 'Please enter your instance role name here'
+hosted_service_name = 'Please enter your hosted service name here'
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+
+result = sms.get_hosted_service_properties(hosted_service_name, True)
+print result.deployments[0].role_instance_list[0].instance_status
