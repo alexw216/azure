@@ -1,0 +1,14 @@
+#!/usr/bin/python
+from azure import *
+from azure.servicemanagement import *
+subscription_id = 'Please enter your subscription id here'
+certificate_path = 'Please enter your certification path here'
+service_name = 'Please enter your service name here'
+deployment_name = 'Please enter your deployment name here'
+role_name = 'Please enter instance role name here'
+deployment_name = 'Please enter deployment name here'
+
+sms= ServiceManagementService(subscription_id, certificate_path)
+
+
+result = sms.shutdown_role(service_name, deployment_name, role_name, 'StoppedDeallocated')
